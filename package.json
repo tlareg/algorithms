@@ -1,0 +1,21 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlareg/algorithms.git"
+  },
+  "author": "Tlareg",
+  "bugs": {
+    "url": "https://github.com/tlareg/algorithms/issues"
+  },
+  "homepage": "https://github.com/tlareg/algorithms#readme",
+  "devDependencies": {
+    "vitest": "^0.34.4"
+  }
+}
