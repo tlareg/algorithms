@@ -12,7 +12,7 @@ export type Graph<T> = {
   edges: Edges<T>;
 };
 
-export function breadthFirstSearch<T>(
+export function depthFirstSearch<T>(
   graph: Graph<T>,
   startNodeId: Node<T>["id"],
   isGoalNode: (node: Node<T>) => boolean
@@ -21,10 +21,10 @@ export function breadthFirstSearch<T>(
 
   const exploredNodes = new Set<Node<T>["id"]>();
   exploredNodes.add(startNode.id);
-  const visitQueue: Node<T>[] = [startNode];
+  const visitStack: Node<T>[] = [startNode];
 
-  while (visitQueue.length) {
-    const currentNode = visitQueue.shift()!;
+  while (visitStack.length) {
+    const currentNode = visitStack.pop()!;
     if (isGoalNode(currentNode)) {
       return currentNode;
     }
@@ -32,8 +32,8 @@ export function breadthFirstSearch<T>(
     graph.edges[currentNode.id].forEach((nodeId) => {
       if (!exploredNodes.has(nodeId)) {
         exploredNodes.add(nodeId);
-        // BFS visits all the nodes at the same level before moving to the next level
-        visitQueue.push(graph.nodes[nodeId]);
+        // DFS visits all the nodes in a branch before moving to the next branch
+        visitStack.push(graph.nodes[nodeId]);
       }
     });
   }
