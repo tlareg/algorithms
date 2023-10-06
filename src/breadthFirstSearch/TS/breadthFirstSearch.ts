@@ -5,7 +5,8 @@ type Node<T> = {
 
 type Nodes<T> = Record<Node<T>["id"], Node<T>>;
 
-type Edges<T> = Record<Node<T>["id"], Set<Node<T>["id"]>>;
+type NodeEdges<T> = Set<Node<T>["id"]>;
+type Edges<T> = Record<Node<T>["id"], NodeEdges<T>>;
 
 export type Graph<T> = {
   nodes: Nodes<T>;
