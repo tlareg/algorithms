@@ -17,5 +17,8 @@
   "homepage": "https://github.com/tlareg/algorithms#readme",
   "devDependencies": {
     "vitest": "^0.34.4"
+  },
+  "dependencies": {
+    "heap-js": "^2.3.0"
   }
 }
